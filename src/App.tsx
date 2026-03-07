@@ -96,7 +96,7 @@ const EXPERIENCE = [
     certificate: {
       title: "Internship Completion Certificate",
       issuer: "Codveda Technologies",
-      link: "https://drive.google.com/file/d/1lTBQ_AzihxjCf-ap_nISahSDSLqb1HGB/view?usp=drive_link"
+      link: ""
     }
   },
   {
@@ -222,10 +222,9 @@ export default function App() {
               <div className="absolute inset-6 rounded-full bg-gradient-to-tr from-pastel-mint via-pastel-lavender to-pastel-pink dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 p-1.5 shadow-2xl">
                 <div className="w-full h-full rounded-full bg-white dark:bg-slate-950 overflow-hidden">
                   <img 
-                    src="https://drive.google.com/file/d/19y7If2BqwWpNfSStNFsIQbs0cnHl53N6/view?usp=drive_link" 
-                    alt="Chanjugaa Rasamohan" 
-                    className="w-full h-full object-cover grayscale-[20%] dark:grayscale-[10%] hover:grayscale-0 transition-all duration-700"
-                    referrerPolicy="no-referrer"
+                   src="/profile.jpg" 
+                   alt="Chanjugaa Rasamohan"
+                   className="w-full h-full object-cover grayscale-[20%]"
                   />
                 </div>
               </div>
@@ -354,12 +353,7 @@ export default function App() {
               className="lg:col-span-5 lg:sticky lg:top-32"
             >
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative group">
-                <img 
-                  src="https://drive.google.com/file/d/1oQy93DjbwE6oFhan8ztGYpqBWSHcu1TR/view?usp=drive_link" 
-                  alt="Professional Workspace" 
-                  className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
+                <img src="/whatsapp.jpg" alt="WhatsApp" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                 <div className="absolute bottom-10 left-10 right-10">
                   <p className="text-white text-lg font-display font-bold mb-2">Dedicated to Excellence</p>
