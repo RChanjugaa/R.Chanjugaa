@@ -30,6 +30,8 @@ import {
   ChevronRight
 } from 'lucide-react';
 
+const assetPath = (fileName: string) => `${import.meta.env.BASE_URL}${fileName}`;
+
 const PROJECTS = [
   {
     title: "Ambiance",
@@ -37,8 +39,8 @@ const PROJECTS = [
     description: "A professional React/Vite application focusing on Booking and Service Management. Designed to streamline studio operations with a high-conversion user interface and robust administrative tools.",
     tech: ["React", "Vite", "Tailwind CSS", "Agile"],
     type: "Web Application",
-    image: "https://picsum.photos/seed/photography/800/600",
-    link: "#"
+    image: assetPath("project-ambiance.svg"),
+    link: "https://github.com/RChanjugaa/Photography_studio_management_system"
   },
   {
     title: "READZY",
@@ -46,8 +48,8 @@ const PROJECTS = [
     description: "Responsive web application with user-focused UI, interactive components, and basic backend integration for managing book loans and inventory.",
     tech: ["HTML", "CSS", "JavaScript", "PHP", "SQL"],
     type: "Web Application",
-    image: "https://picsum.photos/seed/books/800/600",
-    link: "#"
+    image: assetPath("project-readzy.svg"),
+    link: "https://github.com/RChanjugaa/READZY"
   },
   {
     title: "MEDILIFE",
@@ -55,8 +57,8 @@ const PROJECTS = [
     description: "Responsive patient management hospital website with backend integration, designed to handle patient records and appointments efficiently.",
     tech: ["Bootstrap", "Node.js", "MongoDB", "jQuery"],
     type: "Web Application",
-    image: "https://picsum.photos/seed/medical/800/600",
-    link: "#"
+    image: assetPath("project-medilife.svg"),
+    link: ""
   },
   {
     title: "SAVELKR",
@@ -64,8 +66,8 @@ const PROJECTS = [
     description: "User-friendly Android app with responsive layouts and smooth navigation, providing localized utility services.",
     tech: ["Android Studio", "Java", "XML"],
     type: "Mobile App",
-    image: "https://picsum.photos/seed/android/800/600",
-    link: "#"
+    image: assetPath("project-savelkr.svg"),
+    link: ""
   }
 ];
 
@@ -386,35 +388,66 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((p, idx) => (
-                <motion.div 
-                  key={p.title} 
-                  layout 
-                  initial={{ opacity: 0, scale: 0.95 }} 
-                  animate={{ opacity: 1, scale: 1 }} 
-                  exit={{ opacity: 0, scale: 0.95 }} 
-                  className="group bg-slate-50 dark:bg-slate-900/40 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all duration-500"
-                >
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-slate-900/40 dark:bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <ExternalLink className="text-white" size={32} />
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h4 className="text-xl font-display font-bold text-slate-900 dark:text-white mb-1">{p.title}</h4>
-                        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{p.type}</p>
+              {filteredProjects.map((p) => {
+                const hasProjectLink = Boolean(p.link);
+                const cardContent = (
+                  <>
+                    <div className="aspect-[4/3] overflow-hidden relative">
+                      <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-slate-900/40 dark:bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        {hasProjectLink ? (
+                          <ExternalLink className="text-white" size={32} />
+                        ) : (
+                          <span className="px-4 py-2 rounded-full bg-white/95 text-[10px] font-bold uppercase tracking-widest text-slate-700">
+                            Link Coming Soon
+                          </span>
+                        )}
                       </div>
                     </div>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-light">{p.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {p.tech.map(t => <span key={t} className="text-[9px] font-bold px-3 py-1 bg-white dark:bg-slate-900/60 text-slate-500 dark:text-slate-300 rounded-lg border border-slate-100 dark:border-white/10">{t}</span>)}
+                    <div className="p-8">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h4 className="text-xl font-display font-bold text-slate-900 dark:text-white mb-1">{p.title}</h4>
+                          <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{p.type}</p>
+                        </div>
+                      </div>
+                      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-light">{p.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {p.tech.map(t => <span key={t} className="text-[9px] font-bold px-3 py-1 bg-white dark:bg-slate-900/60 text-slate-500 dark:text-slate-300 rounded-lg border border-slate-100 dark:border-white/10">{t}</span>)}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </>
+                );
+
+                return hasProjectLink ? (
+                  <motion.a
+                    key={p.title}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${p.title} project in a new browser tab`}
+                    className="group block cursor-pointer bg-slate-50 dark:bg-slate-900/40 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all duration-500"
+                  >
+                    {cardContent}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={p.title}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    aria-label={`${p.title} project link coming soon`}
+                    className="group block cursor-default bg-slate-50 dark:bg-slate-900/40 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all duration-500"
+                  >
+                    {cardContent}
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
           </div>
         </div>

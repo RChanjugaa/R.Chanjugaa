@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">READZY book lending platform preview</title>
+  <desc id="desc">A warm digital bookshelf interface for a book lending system.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4d35e"/>
+      <stop offset="0.5" stop-color="#faf3dd"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="98" y="86" width="604" height="428" rx="32" fill="#ffffff" opacity="0.94"/>
+  <rect x="148" y="138" width="190" height="292" rx="20" fill="#0f172a"/>
+  <rect x="184" y="176" width="118" height="158" rx="12" fill="#f4d35e"/>
+  <path d="M202 200h82v14h-82zm0 38h82v12h-82zm0 36h62v12h-62z" fill="#0f172a" opacity="0.72"/>
+  <rect x="384" y="142" width="224" height="26" rx="13" fill="#0f172a"/>
+  <rect x="384" y="194" width="278" height="20" rx="10" fill="#cbd5e1"/>
+  <rect x="384" y="232" width="240" height="20" rx="10" fill="#cbd5e1"/>
+  <rect x="384" y="298" width="60" height="118" rx="10" fill="#ef476f"/>
+  <rect x="458" y="270" width="60" height="146" rx="10" fill="#0f766e"/>
+  <rect x="532" y="322" width="60" height="94" rx="10" fill="#f4d35e"/>
+  <rect x="372" y="426" width="244" height="18" rx="9" fill="#0f172a" opacity="0.78"/>
+</svg>
