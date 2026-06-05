@@ -85,7 +85,7 @@ const PROJECTS = [
     type: "Web Application",
     category: "University",
     image: assetPath("project-readzy.svg"),
-    liveLink: "",
+    liveLink: "https://rchanjugaa.github.io/READZY/",
     github: "https://github.com/RChanjugaa/READZY"
   },
   {
