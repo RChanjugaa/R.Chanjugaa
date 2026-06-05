@@ -36,11 +36,46 @@ const PROJECTS = [
   {
     title: "Ambiance",
     subtitle: "Photography Studio Management System",
-    description: "A professional React/Vite application focusing on Booking and Service Management. Designed to streamline studio operations with a high-conversion user interface and robust administrative tools.",
-    tech: ["React", "Vite", "Tailwind CSS", "Agile"],
+    description: "Full-stack studio booking and management web app built with TypeScript. Demonstrates end-to-end development with 76+ commits reflecting a consistent and disciplined workflow.",
+    tech: ["TypeScript", "JavaScript", "Node.js", "MySQL"],
     type: "Web Application",
+    category: "University",
     image: assetPath("project-ambiance.svg"),
-    link: "https://github.com/RChanjugaa/Photography_studio_management_system"
+    liveLink: "",
+    github: "https://github.com/RChanjugaa/Photography_studio_management_system"
+  },
+  {
+    title: "MEDILIFE",
+    subtitle: "Patient Management System",
+    description: "Responsive patient management hospital website with full backend integration, designed to handle patient records and appointments efficiently.",
+    tech: ["Bootstrap", "jQuery", "MongoDB", "Node.js", "Express.js"],
+    type: "Web Application",
+    category: "Personal",
+    image: assetPath("project-medilife.svg"),
+    liveLink: "",
+    github: "https://github.com/RChanjugaa/MEDILIFE"
+  },
+  {
+    title: "SaveLKR",
+    subtitle: "Smart Budgeting Web App",
+    description: "A smart budgeting web app that allows users to track daily expenses, scan bills using OCR, and categorize spending automatically. Includes multilingual voice summaries in English, Sinhala, and Tamil.",
+    tech: ["HTML", "CSS", "JavaScript", "Firebase", "Tesseract.js"],
+    type: "Web Application",
+    category: "Personal",
+    image: assetPath("project-savelkr.svg"),
+    liveLink: "",
+    github: ""
+  },
+  {
+    title: "Expense Tracker",
+    subtitle: "Expense Tracking Application",
+    description: "A Python-based expense tracking application that helps users monitor and manage their daily spending with an intuitive interface.",
+    tech: ["Python"],
+    type: "Application",
+    category: "Personal",
+    image: assetPath("project-savelkr.svg"),
+    liveLink: "",
+    github: "https://github.com/RChanjugaa/EXPENSE_TRACKER"
   },
   {
     title: "READZY",
@@ -48,45 +83,45 @@ const PROJECTS = [
     description: "Responsive web application with user-focused UI, interactive components, and basic backend integration for managing book loans and inventory.",
     tech: ["HTML", "CSS", "JavaScript", "PHP", "SQL"],
     type: "Web Application",
+    category: "University",
     image: assetPath("project-readzy.svg"),
-    link: "https://github.com/RChanjugaa/READZY"
+    liveLink: "",
+    github: "https://github.com/RChanjugaa/READZY"
   },
   {
-    title: "MEDILIFE",
-    subtitle: "Patient Management System",
-    description: "Responsive patient management hospital website with backend integration, designed to handle patient records and appointments efficiently.",
-    tech: ["Bootstrap", "Node.js", "MongoDB", "jQuery"],
+    title: "Portfolio",
+    subtitle: "Personal Portfolio Website",
+    description: "Personal portfolio website built with React and TypeScript, showcasing projects, skills, and experience with a modern UI and dark mode support.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     type: "Web Application",
-    image: assetPath("project-medilife.svg"),
-    link: ""
-  },
-  {
-    title: "SAVELKR",
-    subtitle: "Android Application",
-    description: "User-friendly Android app with responsive layouts and smooth navigation, providing localized utility services.",
-    tech: ["Android Studio", "Java", "XML"],
-    type: "Mobile App",
-    image: assetPath("project-savelkr.svg"),
-    link: ""
+    category: "Personal",
+    image: assetPath("project-ambiance.svg"),
+    liveLink: "https://rchanjugaa.github.io/R.Chanjugaa/",
+    github: "https://github.com/RChanjugaa/R.Chanjugaa"
   }
 ];
 
 const SKILLS_LIST = [
   { name: "React", category: "Frontend" },
-  { name: "Vite", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
+  { name: "TypeScript", category: "Frontend" },
   { name: "JavaScript (ES6+)", category: "Frontend" },
+  { name: "HTML & CSS", category: "Frontend" },
+  { name: "Bootstrap", category: "Frontend" },
   { name: "Python", category: "Programming" },
   { name: "Java", category: "Programming" },
+  { name: "C / C++", category: "Programming" },
   { name: "Node.js", category: "Backend" },
+  { name: "Express.js", category: "Backend" },
   { name: "PHP", category: "Backend" },
   { name: "MongoDB", category: "Backend" },
-  { name: "SQL", category: "Backend" },
-  { name: "Agile Methodology", category: "Management" },
-  { name: "Team Leadership", category: "Management" },
+  { name: "MySQL / MSSQL", category: "Backend" },
+  { name: "Firebase", category: "Backend" },
+  { name: "Figma", category: "Design" },
   { name: "UI/UX Design", category: "Design" },
   { name: "Android Studio", category: "Tools" },
-  { name: "Git", category: "Tools" }
+  { name: "Git & GitHub", category: "Tools" },
+  { name: "R Studio", category: "Tools" },
+  { name: "Agile Methodology", category: "Management" }
 ];
 
 const EXPERIENCE = [
@@ -138,10 +173,10 @@ export default function App() {
 
   const filteredProjects = useMemo(() => {
     if (filter === 'All') return PROJECTS;
-    return PROJECTS.filter(p => p.tech.includes(filter) || p.type === filter);
+    return PROJECTS.filter(p => p.tech.includes(filter) || p.type === filter || p.category === filter);
   }, [filter]);
 
-  const filterOptions = ['All', 'React', 'Python', 'Web Application', 'Mobile App'];
+  const filterOptions = ['All', 'Personal', 'University', 'Web Application', 'Application'];
 
   return (
     <div className="min-h-screen transition-colors duration-500 dark:bg-dark-bg dark:text-slate-200">
@@ -153,7 +188,7 @@ export default function App() {
           </motion.a>
 
           <div className="hidden md:flex items-center space-x-10">
-            {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((name) => (
+            {['About', 'Experience', 'Projects', 'Skills', 'Memberships', 'Contact'].map((name) => (
               <a key={name} href={`#${name.toLowerCase()}`} className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                 {name}
               </a>
@@ -194,14 +229,16 @@ export default function App() {
               A <span className="font-semibold text-slate-900 dark:text-white">Full Stack Developer</span> specializing in <span className="font-semibold text-slate-900 dark:text-white">UI/UX Design</span> and <span className="font-semibold text-slate-900 dark:text-white">Frontend Development</span>. Bridging the gap between design and engineering.
             </p>
             <div className="flex flex-wrap gap-6 items-center">
-              <motion.button 
+              <motion.a
+                href={assetPath("Chanjugaa_Rasamohan_CV.pdf")}
+                download="Chanjugaa_Rasamohan_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm tracking-widest uppercase shadow-2xl hover:shadow-pastel-pink/20 transition-all flex items-center space-x-3"
               >
                 <span>Download My CV</span>
                 <Download size={18} />
-              </motion.button>
+              </motion.a>
               <div className="flex items-center space-x-6">
                 <a href="https://github.com/Chanjugaa" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                   <Github size={24} />
@@ -224,7 +261,7 @@ export default function App() {
               <div className="absolute inset-6 rounded-full bg-gradient-to-tr from-pastel-mint via-pastel-lavender to-pastel-pink dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500 p-1.5 shadow-2xl">
                 <div className="w-full h-full rounded-full bg-white dark:bg-slate-950 overflow-hidden">
                   <img 
-                   src="/profile.jpg" 
+                   src={assetPath("profile.jpg")}
                    alt="Chanjugaa Rasamohan"
                    className="w-full h-full object-cover grayscale-[20%]"
                   />
@@ -388,66 +425,82 @@ export default function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((p) => {
-                const hasProjectLink = Boolean(p.link);
-                const cardContent = (
-                  <>
-                    <div className="aspect-[4/3] overflow-hidden relative">
-                      <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-slate-900/40 dark:bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        {hasProjectLink ? (
-                          <ExternalLink className="text-white" size={32} />
-                        ) : (
-                          <span className="px-4 py-2 rounded-full bg-white/95 text-[10px] font-bold uppercase tracking-widest text-slate-700">
-                            Link Coming Soon
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div className="p-8">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h4 className="text-xl font-display font-bold text-slate-900 dark:text-white mb-1">{p.title}</h4>
-                          <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{p.type}</p>
-                        </div>
-                      </div>
-                      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-light">{p.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {p.tech.map(t => <span key={t} className="text-[9px] font-bold px-3 py-1 bg-white dark:bg-slate-900/60 text-slate-500 dark:text-slate-300 rounded-lg border border-slate-100 dark:border-white/10">{t}</span>)}
-                      </div>
-                    </div>
-                  </>
-                );
+              {filteredProjects.map((p) => (
+                <motion.div
+                  key={p.title + p.subtitle}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  className="group flex flex-col bg-slate-50 dark:bg-slate-900/40 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all duration-500"
+                >
+                  {/* Image */}
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-slate-900/30 dark:bg-slate-950/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
 
-                return hasProjectLink ? (
-                  <motion.a
-                    key={p.title}
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Open ${p.title} project in a new browser tab`}
-                    className="group block cursor-pointer bg-slate-50 dark:bg-slate-900/40 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all duration-500"
-                  >
-                    {cardContent}
-                  </motion.a>
-                ) : (
-                  <motion.div
-                    key={p.title}
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    aria-label={`${p.title} project link coming soon`}
-                    className="group block cursor-default bg-slate-50 dark:bg-slate-900/40 rounded-[2.5rem] overflow-hidden border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all duration-500"
-                  >
-                    {cardContent}
-                  </motion.div>
-                );
-              })}
+                  {/* Content */}
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h4 className="text-xl font-display font-bold text-slate-900 dark:text-white mb-1">{p.title}</h4>
+                        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{p.subtitle}</p>
+                      </div>
+                      <span className={`text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border ${p.category === 'Personal' ? 'bg-pastel-pink/20 text-pastel-pink-dark border-pastel-pink/30' : 'bg-pastel-lavender/30 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-900'}`}>
+                        {p.category}
+                      </span>
+                    </div>
+
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-5 line-clamp-3 font-light flex-1">{p.description}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {p.tech.map(t => (
+                        <span key={t} className="text-[9px] font-bold px-3 py-1 bg-white dark:bg-slate-900/60 text-slate-500 dark:text-slate-300 rounded-lg border border-slate-100 dark:border-white/10">{t}</span>
+                      ))}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 mt-auto">
+                      {/* View Live */}
+                      {p.liveLink ? (
+                        <a
+                          href={p.liveLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] font-bold uppercase tracking-widest hover:scale-[1.03] transition-all shadow-md"
+                        >
+                          <ExternalLink size={13} />
+                          View Live
+                        </a>
+                      ) : (
+                        <span className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800/50 text-slate-400 dark:text-slate-600 text-[10px] font-bold uppercase tracking-widest cursor-not-allowed border border-slate-200 dark:border-white/5">
+                          <ExternalLink size={13} />
+                          Coming Soon
+                        </span>
+                      )}
+
+                      {/* GitHub Repo */}
+                      {p.github ? (
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white text-[10px] font-bold uppercase tracking-widest hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all"
+                        >
+                          <Github size={13} />
+                          GitHub Repo
+                        </a>
+                      ) : (
+                        <span className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl border-2 border-slate-200 dark:border-white/10 text-slate-400 dark:text-slate-600 text-[10px] font-bold uppercase tracking-widest cursor-not-allowed">
+                          <Github size={13} />
+                          Private
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </AnimatePresence>
           </div>
         </div>
@@ -469,6 +522,43 @@ export default function App() {
               >
                 <div className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">{skill.category}</div>
                 <div className="text-lg font-display font-bold text-slate-900 dark:text-white">{skill.name}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Memberships Section */}
+      <section id="memberships" className="section-padding bg-white dark:bg-transparent">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-xs font-bold text-pastel-pink-dark uppercase tracking-[0.3em] mb-4">Professional</h2>
+            <h3 className="text-4xl font-display font-bold text-slate-900 dark:text-white">Memberships</h3>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { org: "IEEE", detail: "Member since December 2025", sub: "Member No: 101501753", status: "Active" },
+              { org: "IEEE Computer Society", detail: "Active Member", sub: "1 Year", status: "Active" },
+              { org: "IEEE IAS", detail: "Industry Applications Society", sub: "Active Member · 1 Year", status: "Active" },
+              { org: "IEEE SIGHT", detail: "Special Interest Group on Humanitarian Technology", sub: "Active Member · 1 Year", status: "Active" },
+            ].map((m, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="glass-card p-8 rounded-3xl flex flex-col gap-3"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 uppercase tracking-widest border border-emerald-200 dark:border-emerald-800">
+                    {m.status}
+                  </span>
+                  <Award size={18} className="text-pastel-pink-dark" />
+                </div>
+                <h4 className="font-display font-bold text-slate-900 dark:text-white text-lg leading-tight">{m.org}</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{m.detail}</p>
+                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{m.sub}</p>
               </motion.div>
             ))}
           </div>
@@ -547,7 +637,7 @@ export default function App() {
       <footer className="py-12 text-center border-t border-slate-100 dark:border-obsidian-border bg-white dark:bg-obsidian-bg">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-            © 2024 Chanjugaa Rasamohan
+            © 2026 Chanjugaa Rasamohan
           </p>
           <div className="flex items-center space-x-8">
             <a href="https://github.com/Chanjugaa" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><Github size={20} /></a>
@@ -569,7 +659,7 @@ export default function App() {
             <button className="absolute top-10 right-10" onClick={() => setIsMenuOpen(false)}>
               <X size={32} />
             </button>
-            {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((name) => (
+            {['About', 'Experience', 'Projects', 'Skills', 'Memberships', 'Contact'].map((name) => (
               <a 
                 key={name} 
                 href={`#${name.toLowerCase()}`} 
