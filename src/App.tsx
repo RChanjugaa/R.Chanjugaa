@@ -68,12 +68,12 @@ const PROJECTS = [
   },
   {
     title: "Expense Tracker",
-    subtitle: "Expense Tracking Application",
-    description: "A Python-based expense tracking application that helps users monitor and manage their daily spending with an intuitive interface.",
-    tech: ["Python"],
-    type: "Application",
+    subtitle: "Group Expense Management App",
+    description: "A full-stack Django web app for tracking and splitting expenses across groups, with email-OTP authentication, Google login, and PostgreSQL persistence. Deployed live on Render.",
+    tech: ["Python", "Django", "PostgreSQL", "Bootstrap"],
+    type: "Web Application",
     category: "Personal",
-    image: assetPath("project-savelkr.svg"),
+    image: assetPath("project-expensetracker.png"),
     liveLink: "https://expense-tracker-iyjt.onrender.com/",
     github: "https://github.com/RChanjugaa/EXPENSE_TRACKER"
   },
@@ -133,7 +133,7 @@ const EXPERIENCE = [
     certificate: {
       title: "Internship Completion Certificate",
       issuer: "Codveda Technologies",
-      link: ""
+      link: assetPath("CODEVEDA Completion letter.pdf")
     }
   },
   {
@@ -176,7 +176,7 @@ export default function App() {
     return PROJECTS.filter(p => p.tech.includes(filter) || p.type === filter || p.category === filter);
   }, [filter]);
 
-  const filterOptions = ['All', 'Personal', 'University', 'Web Application', 'Application'];
+  const filterOptions = ['All', 'Personal', 'University', 'Web Application'];
 
   return (
     <div className="min-h-screen transition-colors duration-500 dark:bg-dark-bg dark:text-slate-200">
@@ -370,17 +370,24 @@ export default function App() {
                         <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest">{exp.certificate.issuer}</p>
                       </div>
                     </div>
-                    <motion.a 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={exp.certificate.link} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg"
-                    >
-                      <span>View certificate</span>
-                      <Github size={14} />
-                    </motion.a>
+                    {exp.certificate.link ? (
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={exp.certificate.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg"
+                      >
+                        <span>View certificate</span>
+                        <ExternalLink size={14} />
+                      </motion.a>
+                    ) : (
+                      <span className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-slate-400 dark:text-slate-600 text-[10px] font-bold uppercase tracking-widest cursor-not-allowed">
+                        <span>Coming Soon</span>
+                        <ExternalLink size={14} />
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               ))}
