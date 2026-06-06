@@ -84,7 +84,7 @@ const PROJECTS = [
     tech: ["HTML", "CSS", "JavaScript", "PHP", "SQL"],
     type: "Web Application",
     category: "University",
-    image: assetPath("project-readzy.svg"),
+    image: assetPath("project-readzy.png"),
     liveLink: "https://rchanjugaa.github.io/READZY/",
     github: "https://github.com/RChanjugaa/READZY"
   },
@@ -231,16 +231,17 @@ export default function App() {
             <div className="flex flex-wrap gap-6 items-center">
               <motion.a
                 href={assetPath("Chanjugaa_Rasamohan_CV.pdf")}
-                download="Chanjugaa_Rasamohan_CV.pdf"
+                target="_blank"
+                rel="noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm tracking-widest uppercase shadow-2xl hover:shadow-pastel-pink/20 transition-all flex items-center space-x-3"
               >
-                <span>Download My CV</span>
+                <span>View My CV</span>
                 <Download size={18} />
               </motion.a>
               <div className="flex items-center space-x-6">
-                <a href="https://github.com/Chanjugaa" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <a href="https://github.com/RChanjugaa" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                   <Github size={24} />
                 </a>
                 <a href="https://linkedin.com/in/chanjugaa-rasamohan-1444b0372" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
@@ -392,7 +393,7 @@ export default function App() {
               className="lg:col-span-5 lg:sticky lg:top-32"
             >
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative group">
-                <img src="/whatsapp.jpg" alt="WhatsApp" />
+                <img src={assetPath("whatsapp.jpg")} alt="Chanjugaa Rasamohan" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                 <div className="absolute bottom-10 left-10 right-10">
                   <p className="text-white text-lg font-display font-bold mb-2">Dedicated to Excellence</p>
@@ -640,7 +641,7 @@ export default function App() {
             © 2026 Chanjugaa Rasamohan
           </p>
           <div className="flex items-center space-x-8">
-            <a href="https://github.com/Chanjugaa" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><Github size={20} /></a>
+            <a href="https://github.com/RChanjugaa" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><Github size={20} /></a>
             <a href="https://linkedin.com/in/chanjugaa-rasamohan-1444b0372" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><Linkedin size={20} /></a>
             <a href="mailto:chanju1231@gmail.com" className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"><Mail size={20} /></a>
           </div>
