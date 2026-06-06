@@ -74,7 +74,7 @@ const PROJECTS = [
     type: "Application",
     category: "Personal",
     image: assetPath("project-savelkr.svg"),
-    liveLink: "",
+    liveLink: "https://expense-tracker-iyjt.onrender.com/",
     github: "https://github.com/RChanjugaa/EXPENSE_TRACKER"
   },
   {
